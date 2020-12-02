@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAGA,AAAA,IAAI,CAAC,CAAC,CAAA;EACJ,KAAK,EAAE,KAAK;CACb",
+    "sources": [
+        "rakutens.scss"
+    ],
+    "names": [],
+    "file": "rakutens.css"
+}

@@ -1,0 +1,21 @@
+// Place all the styles related to the rakutens controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.url *{
+  color: black;
+}
+.url:hover *{
+  color: black;
+}
+
+.img img{
+  height: 200%;
+}
+
+#search_login,#search_link{
+  margin-top: 5px;
+}
+
+#board_link{
+  margin-left: auto;
+}

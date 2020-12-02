@@ -1,0 +1,18 @@
+<html lang="ja">
+
+  <%= link_to 'ログイン', new_user_session_path, class: "btn btn-outline-info float-right",id: "search_login" %>
+  <h1>楽天検索</h1>
+  <%= form_tag :rakutens_search, method: :get do  %>
+    <%= label_tag :keyword, 'キーワード検索' %>
+    <%= text_field_tag 'keyword', params[:keyword] ,placeholder: "入力してください"%>
+    <%= select_tag 'order', options_for_select({"標準": "standard","レビュー件数順(昇順)": "+reviewCount","レビュー件数順(降順)": "-reviewCount", "レビュー平均順（昇順）": "+reviewAverage","レビュー平均順（降順）": "-reviewAverage","価格順（昇順）": "+itemPrice","価格順（降順）": "-itemPrice","商品更新日時順（昇順）": "+updateTimestamp","商品更新日時順（降順）": "-updateTimestamp"})%>
+    <%= submit_tag "検索" %>
+  <% end %>
+
+<%= render partial: 'good_list' %>
+
+  <% if @items != "キーワードを入力してください" %>
+    <%= paginate @items, class: "paginate" %>
+  <% end %>
+
+</html>

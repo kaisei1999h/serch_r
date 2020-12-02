@@ -1,0 +1,36 @@
+<div class="d-flex align-items-center">
+    <h1>投稿一覧</h1>
+    <div id="board_link" class="float-right">
+      <div>
+          <%= link_to '検索画面', rakutens_search_path, class: "btn btn-outline-info", id:"search_link" %> 
+      </div>
+      <div>
+        <%= link_to 'ログイン', new_user_session_path, class: "btn btn-outline-info float-right",id: "search_login" %>
+      </div>
+    </div>
+</div>
+<table class="table table-bordered border-primary table-hover table-sm posts_table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">商品名</th>
+      <th scope="col">メモ</th>
+      <th scope="col">値段</th>
+      <th scope="col">投稿日</th>
+      <th scope="col">更新日時</th>
+      <th scope="col"></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+      <% @posts.each do |post| %>
+        <tr>
+            <td class="url"><%= link_to post.item, post.url %></td>
+            <td><%= post.memo %></td>
+            <td><%= post.price %>円</td>
+            <td><%= post.created_at.to_s(:datetime_base) %></td>
+            <td><%= post.updated_at.to_s(:datetime_base) %></td>
+            <td><%= link_to '編集', edit_rakuten_path(post.id), class: "btn btn-outline-info" %><%= link_to "削除" , post, class: 'btn btn-outline-info', method: :delete, data: {confirm: "投稿記事を削除しますか？", cancel: "キャンセル", commit: "削除する", title: "削除の確認"} %></td>
+        </tr>
+      <% end %>
+  </tbody>
+</table>
